@@ -1,0 +1,204 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.2	//
+AddNamedTag	./Buffer/Plugins/Tags.pm	/^sub AddNamedTag$/;"	s
+Backspace	./Buffer.pm	/^sub Backspace$/;"	s
+BoxSelection	./Buffer/Plugins/Movements.pm	/^sub BoxSelection$/;"	s
+Clear	./Selection.pm	/^sub Clear$/;"	s
+ClearAllTags	./Buffer/Plugins/Tags.pm	/^sub ClearAllTags$/;"	s
+ClearLine	./Buffer.pm	/^sub ClearLine$/;"	s
+ClearSelection	./Buffer/Plugins/Selection.pm	/^sub ClearSelection$/;"	s
+ClearTagAtLine	./Buffer/Plugins/Tags.pm	/^sub ClearTagAtLine$/;"	s
+Clone	./Selection.pm	/^sub Clone$/;"	s
+CompareBuffers	./Buffer/Test.pm	/^sub CompareBuffers$/;"	s
+CompareText	./Buffer/Test.pm	/^sub CompareText$/;"	s
+DESTROY	./CommandBlock.pm	/^sub DESTROY$/;"	s
+DecrementUndoStackLevel	./Buffer/DoUndoRedo.pm	/^sub DecrementUndoStackLevel$/;"	s
+Delete	./Buffer.pm	/^sub Delete$/;"	s
+DeleteLine	./Buffer.pm	/^sub DeleteLine$/;"	s
+DeleteNode	./Buffer/List.pm	/^sub DeleteNode$/;"	s
+DeleteSelection	./Buffer/Selection.pm	/^sub DeleteSelection$/;"	s
+DeleteToBeginingOfWord	./Buffer/Plugins/InsertDelete.pm	/^sub DeleteToBeginingOfWord$/;"	s
+DeleteToEndOfWord	./Buffer/Plugins/InsertDelete.pm	/^sub DeleteToEndOfWord$/;"	s
+DiagBuffers	./Buffer/Test.pm	/^sub DiagBuffers$/;"	s
+Do	./Buffer.pm	/^sub Do$/;"	s
+ExpandWith	./Buffer.pm	/^sub ExpandWith$/;"	s
+ExpandedWithOrLoad	./Buffer.pm	/^sub ExpandedWithOrLoad$/;"	s
+ExtendSelection	./Buffer/Plugins/Selection.pm	/^sub ExtendSelection$/;"	s
+ExtendSelectionDown	./Buffer/Plugins/Selection.pm	/^sub ExtendSelectionDown$/;"	s
+ExtendSelectionHome	./Buffer/Plugins/Selection.pm	/^sub ExtendSelectionHome$/;"	s
+ExtendSelectionLeft	./Buffer/Plugins/Selection.pm	/^sub ExtendSelectionLeft$/;"	s
+ExtendSelectionPageDown	./Buffer/Plugins/PageUpDown.pm	/^sub ExtendSelectionPageDown$/;"	s
+ExtendSelectionPageUp	./Buffer/Plugins/PageUpDown.pm	/^sub ExtendSelectionPageUp$/;"	s
+ExtendSelectionRight	./Buffer/Plugins/Selection.pm	/^sub ExtendSelectionRight$/;"	s
+ExtendSelectionToBeginingOfWord	./Buffer/Plugins/Selection.pm	/^sub ExtendSelectionToBeginingOfWord$/;"	s
+ExtendSelectionToEndOfBuffer	./Buffer/Plugins/Selection.pm	/^sub ExtendSelectionToEndOfBuffer$/;"	s
+ExtendSelectionToEndOfLine	./Buffer/Plugins/Selection.pm	/^sub ExtendSelectionToEndOfLine$/;"	s
+ExtendSelectionToNextWord	./Buffer/Plugins/Selection.pm	/^sub ExtendSelectionToNextWord$/;"	s
+ExtendSelectionToPreviousWord	./Buffer/Plugins/Selection.pm	/^sub ExtendSelectionToPreviousWord$/;"	s
+ExtendSelectionToStartOfBuffer	./Buffer/Plugins/Selection.pm	/^sub ExtendSelectionToStartOfBuffer$/;"	s
+ExtendSelectionUp	./Buffer/Plugins/Selection.pm	/^sub ExtendSelectionUp$/;"	s
+FindNextOccurence	./Buffer/Plugins/FindReplace.pm	/^sub FindNextOccurence$/;"	s
+FindNextOccurenceForCurrentWord	./Buffer/Plugins/FindReplace.pm	/^sub FindNextOccurenceForCurrentWord$/;"	s
+FindOccurence	./Buffer/Plugins/FindReplace.pm	/^sub FindOccurence$/;"	s
+FindOccurenceBackwards	./Buffer/Plugins/FindReplace.pm	/^sub FindOccurenceBackwards$/;"	s
+FindPreviousOccurence	./Buffer/Plugins/FindReplace.pm	/^sub FindPreviousOccurence$/;"	s
+FindPreviousOccurenceForCurrentWord	./Buffer/Plugins/FindReplace.pm	/^sub FindPreviousOccurenceForCurrentWord$/;"	s
+FlipTagAtLine	./Buffer/Plugins/Tags.pm	/^sub FlipTagAtLine$/;"	s
+GetAlphanumericFilter	./Buffer/Plugins/GetWord.pm	/^sub GetAlphanumericFilter$/;"	s
+GetBoundaries	./Selection.pm	/^sub GetBoundaries$/;"	s
+GetCharacterDisplayPosition	./Buffer/Plugins/Display.pm	/^sub GetCharacterDisplayPosition$/;"	s
+GetCharacterPositionInText	./Buffer/Plugins/Display.pm	/^sub GetCharacterPositionInText$/;"	s
+GetCurrentWord	./Buffer/Plugins/GetWord.pm	/^sub GetCurrentWord$/;"	s
+GetDoBuffer	./Buffer/DoUndoRedo.pm	/^sub GetDoBuffer$/;"	s
+GetDoPosition	./Buffer/DoUndoRedo.pm	/^sub GetDoPosition$/;"	s
+GetEndCharacter	./Selection.pm	/^sub GetEndCharacter$/;"	s
+GetEndLine	./Selection.pm	/^sub GetEndLine$/;"	s
+GetFirstNonSpacePosition	./Buffer/Plugins/Movements.pm	/^sub GetFirstNonSpacePosition$/;"	s
+GetFirstWord	./Buffer/Plugins/GetWord.pm	/^sub GetFirstWord$/;"	s
+GetLine	./Buffer.pm	/^sub GetLine$/;"	s
+GetLineLength	./Buffer.pm	/^sub GetLineLength$/;"	s
+GetLineText	./Buffer.pm	/^sub GetLineText$/;"	s
+GetModificationCharacter	./Buffer.pm	/^sub GetModificationCharacter$/;"	s
+GetModificationLine	./Buffer.pm	/^sub GetModificationLine$/;"	s
+GetModificationPosition	./Buffer.pm	/^sub GetModificationPosition$/;"	s
+GetNamedTags	./Buffer/Plugins/Tags.pm	/^sub GetNamedTags$/;"	s
+GetNextAlphanumeric	./Buffer/Plugins/GetWord.pm	/^sub GetNextAlphanumeric$/;"	s
+GetNodeData	./Buffer/List.pm	/^sub GetNodeData$/;"	s
+GetNumberOfLines	./Buffer.pm	/^sub GetNumberOfLines$/;"	s
+GetNumberOfNodes	./Buffer/List.pm	/^sub GetNumberOfNodes$/;"	s
+GetPreviousAlphanumeric	./Buffer/Plugins/GetWord.pm	/^sub GetPreviousAlphanumeric$/;"	s
+GetPreviousWord	./Buffer/Plugins/GetWord.pm	/^sub GetPreviousWord$/;"	s
+GetSelection	./Buffer/Selection.pm	/^sub GetSelection$/;"	s
+GetSelectionBoundaries	./Buffer/Plugins/Selection.pm	/^sub GetSelectionBoundaries$/;"	s
+GetSelectionBoundaries	./Buffer/Selection.pm	/^sub GetSelectionBoundaries$/;"	s
+GetSelectionEndCharacter	./Buffer/Plugins/Selection.pm	/^sub GetSelectionEndCharacter$/;"	s
+GetSelectionEndLine	./Buffer/Plugins/Selection.pm	/^sub GetSelectionEndLine$/;"	s
+GetSelectionStartCharacter	./Buffer/Plugins/Selection.pm	/^sub GetSelectionStartCharacter$/;"	s
+GetSelectionStartLine	./Buffer/Plugins/Selection.pm	/^sub GetSelectionStartLine$/;"	s
+GetSelectionText	./Buffer/Selection.pm	/^sub GetSelectionText$/;"	s
+GetStartCharacter	./Selection.pm	/^sub GetStartCharacter$/;"	s
+GetStartLine	./Selection.pm	/^sub GetStartLine$/;"	s
+GetTabSize	./Buffer/Plugins/Display.pm	/^sub GetTabSize { return ($_[0]->{'Text::Editor::Vip::Buffer::Plugins::Display::TAB_SIZE'} || 8) ;}$/;"	s
+GetText	./Buffer.pm	/^sub GetText$/;"	s
+GetTextAsArrayRef	./Buffer.pm	/^sub GetTextAsArrayRef$/;"	s
+GetUndoBuffer	./Buffer/DoUndoRedo.pm	/^sub GetUndoBuffer$/;"	s
+GotoNamedTag	./Buffer/Plugins/Tags.pm	/^sub GotoNamedTag$/;"	s
+GotoNextTag	./Buffer/Plugins/Tags.pm	/^sub GotoNextTag$/;"	s
+GotoPreviousTag	./Buffer/Plugins/Tags.pm	/^sub GotoPreviousTag$/;"	s
+IncrementUndoStackLevel	./Buffer/DoUndoRedo.pm	/^sub IncrementUndoStackLevel$/;"	s
+IndentNewLine	./Buffer/Indenter.pm	/^sub IndentNewLine$/;"	s
+Insert	./Buffer.pm	/^sub Insert$/;"	s
+InsertAfter	./Buffer/List.pm	/^sub InsertAfter$/;"	s
+InsertAlignedWithTab	./Buffer/Plugins/InsertConstruct.pm	/^sub InsertAlignedWithTab$/;"	s
+InsertBefore	./Buffer/List.pm	/^sub InsertBefore$/;"	s
+InsertConstruct	./Buffer/Plugins/InsertConstruct.pm	/^sub InsertConstruct$/;"	s
+InsertFile	./Buffer/Plugins/File.pm	/^sub InsertFile$/;"	s
+InsertNewLine	./Buffer.pm	/^sub InsertNewLine$/;"	s
+InsertNewLineBeforeCurrent	./Buffer/Plugins/InsertDelete.pm	/^sub InsertNewLineBeforeCurrent$/;"	s
+InsertTab	./Buffer/Plugins/InsertDelete.pm	/^sub InsertTab$/;"	s
+IsBufferMarkedAsEdited	./Buffer.pm	/^sub IsBufferMarkedAsEdited {return($_[0]->{MARKED_AS_EDITED}) ;}$/;"	s
+IsCharacterSelected	./Buffer/Plugins/Selection.pm	/^sub IsCharacterSelected($$) # Expects a line and a character index$/;"	s
+IsCharacterSelected	./Selection.pm	/^sub IsCharacterSelected($$) # Expects a line and a character index$/;"	s
+IsEmpty	./Selection.pm	/^sub IsEmpty$/;"	s
+IsLineSelected	./Buffer/Plugins/Selection.pm	/^sub IsLineSelected($)$/;"	s
+IsLineSelected	./Selection.pm	/^sub IsLineSelected($)$/;"	s
+IsSelectionEmpty	./Buffer/Plugins/Selection.pm	/^sub IsSelectionEmpty$/;"	s
+LoadAndExpandWith	./Buffer.pm	/^sub LoadAndExpandWith$/;"	s
+MakeSelectionLowerCase	./Buffer/Plugins/Case.pm	/^sub MakeSelectionLowerCase$/;"	s
+MakeSelectionUpperCase	./Buffer/Plugins/Case.pm	/^sub MakeSelectionUpperCase$/;"	s
+MarkBufferAsEdited	./Buffer.pm	/^sub MarkBufferAsEdited { $_[0]->{MARKED_AS_EDITED} = 1 ;}$/;"	s
+MarkBufferAsUnedited	./Buffer.pm	/^sub MarkBufferAsUnedited {$_[0]->{MARKED_AS_EDITED} = 0 ;}$/;"	s
+MoveDown	./Buffer/Plugins/Movements.pm	/^sub MoveDown$/;"	s
+MoveDownNoSelectionClear	./Buffer/Plugins/Movements.pm	/^sub MoveDownNoSelectionClear$/;"	s
+MoveHome	./Buffer/Plugins/Movements.pm	/^sub MoveHome # jumping frog$/;"	s
+MoveLeft	./Buffer/Plugins/Movements.pm	/^sub MoveLeft$/;"	s
+MoveLeftNoSelectionClear	./Buffer/Plugins/Movements.pm	/^sub MoveLeftNoSelectionClear$/;"	s
+MoveRight	./Buffer/Plugins/Movements.pm	/^sub MoveRight$/;"	s
+MoveRightNoSelectionClear	./Buffer/Plugins/Movements.pm	/^sub MoveRightNoSelectionClear$/;"	s
+MoveToBeginingOfWord	./Buffer/Plugins/Movements.pm	/^sub MoveToBeginingOfWord$/;"	s
+MoveToBeginingOfWordNoSelectionClear	./Buffer/Plugins/Movements.pm	/^sub MoveToBeginingOfWordNoSelectionClear$/;"	s
+MoveToEndOfBuffer	./Buffer/Plugins/Movements.pm	/^sub MoveToEndOfBuffer$/;"	s
+MoveToEndOfLine	./Buffer/Plugins/Movements.pm	/^sub MoveToEndOfLine$/;"	s
+MoveToEndOfLineNoSelectionClear	./Buffer/Plugins/Movements.pm	/^sub MoveToEndOfLineNoSelectionClear$/;"	s
+MoveToEndOfSelectionNoClear	./Buffer/Plugins/Movements.pm	/^sub MoveToEndOfSelectionNoClear$/;"	s
+MoveToEndOfWord	./Buffer/Plugins/Movements.pm	/^sub MoveToEndOfWord$/;"	s
+MoveToEndOfWordNoSelectionClear	./Buffer/Plugins/Movements.pm	/^sub MoveToEndOfWordNoSelectionClear$/;"	s
+MoveToNextWord	./Buffer/Plugins/Movements.pm	/^sub MoveToNextWord$/;"	s
+MoveToNextWordNoSelectionClear	./Buffer/Plugins/Movements.pm	/^sub MoveToNextWordNoSelectionClear$/;"	s
+MoveToPreviousWord	./Buffer/Plugins/Movements.pm	/^sub MoveToPreviousWord$/;"	s
+MoveToPreviousWordNoSelectionClear	./Buffer/Plugins/Movements.pm	/^sub MoveToPreviousWordNoSelectionClear$/;"	s
+MoveToStartOfSelectionNoClear	./Buffer/Plugins/Movements.pm	/^sub MoveToStartOfSelectionNoClear$/;"	s
+MoveToTopOfBuffer	./Buffer/Plugins/Movements.pm	/^sub MoveToTopOfBuffer$/;"	s
+MoveUp	./Buffer/Plugins/Movements.pm	/^sub MoveUp$/;"	s
+MoveUpNoSelectionClear	./Buffer/Plugins/Movements.pm	/^sub MoveUpNoSelectionClear$/;"	s
+OffsetModificationPosition	./Buffer.pm	/^sub OffsetModificationPosition$/;"	s
+PageDown	./Buffer/Plugins/PageUpDown.pm	/^sub PageDown$/;"	s
+PageDownNoSelectionClear	./Buffer/Plugins/PageUpDown.pm	/^sub PageDownNoSelectionClear$/;"	s
+PageUp	./Buffer/Plugins/PageUpDown.pm	/^sub PageUp$/;"	s
+PageUpNoSelectionClear	./Buffer/Plugins/PageUpDown.pm	/^sub PageUpNoSelectionClear$/;"	s
+PrintError	./Buffer.pm	/^sub PrintError$/;"	s
+PrintPositionData	./Buffer/Test.pm	/^sub PrintPositionData$/;"	s
+Push	./Buffer/List.pm	/^sub Push$/;"	s
+PushUndoStep	./Buffer/DoUndoRedo.pm	/^sub PushUndoStep$/;"	s
+Redo	./Buffer/DoUndoRedo.pm	/^sub Redo$/;"	s
+RemoveTabFromSelection	./Buffer/Plugins/InsertDelete.pm	/^sub RemoveTabFromSelection$/;"	s
+ReplaceOccurence	./Buffer/Plugins/FindReplace.pm	/^sub ReplaceOccurence$/;"	s
+RunSubOnSelection	./Buffer/Selection.pm	/^sub RunSubOnSelection$/;"	s
+SelectAll	./Buffer/Plugins/Selection.pm	/^sub SelectAll$/;"	s
+SelectWord	./Buffer/Plugins/Selection.pm	/^sub SelectWord$/;"	s
+Set	./Selection.pm	/^sub Set($$$$) # Expects line and character$/;"	s
+SetAlphanumericFilter	./Buffer/Plugins/GetWord.pm	/^sub SetAlphanumericFilter$/;"	s
+SetAnchor	./Selection.pm	/^sub SetAnchor($$) # Expects line and character$/;"	s
+SetLine	./Selection.pm	/^sub SetLine($$) # Expects line and character$/;"	s
+SetLineTerminationType	./Buffer/Plugins/File.pm	/^sub SetLineTerminationType$/;"	s
+SetModificationCharacter	./Buffer.pm	/^sub SetModificationCharacter$/;"	s
+SetModificationLine	./Buffer.pm	/^sub SetModificationLine$/;"	s
+SetModificationPosition	./Buffer.pm	/^sub SetModificationPosition$/;"	s
+SetModificationPositionAtSelectionStart	./Buffer/Plugins/Movements.pm	/^sub SetModificationPositionAtSelectionStart$/;"	s
+SetNodeData	./Buffer/List.pm	/^sub SetNodeData$/;"	s
+SetSelection	./Buffer/Selection.pm	/^sub SetSelection$/;"	s
+SetSelectionAnchor	./Buffer/Plugins/Selection.pm	/^sub SetSelectionAnchor($$) # Expects line and character$/;"	s
+SetSelectionAnchorAtCurrentPosition	./Buffer/Plugins/Selection.pm	/^sub SetSelectionAnchorAtCurrentPosition$/;"	s
+SetSelectionBoundaries	./Buffer/Selection.pm	/^sub SetSelectionBoundaries$/;"	s
+SetSelectionLine	./Buffer/Plugins/Selection.pm	/^sub SetSelectionLine($$) # Expects line and character$/;"	s
+SetTabSize	./Buffer/Plugins/Display.pm	/^sub SetTabSize { $_[0]->{'Text::Editor::Vip::Buffer::Plugins::Display::TAB_SIZE'} = $_[1] ;}$/;"	s
+SetTagAtLine	./Buffer/Plugins/Tags.pm	/^sub SetTagAtLine$/;"	s
+Setup	./Buffer.pm	/^sub Setup$/;"	s
+Setup	./Selection.pm	/^sub Setup$/;"	s
+Stringify	./Buffer.pm	/^sub Stringify$/;"	s
+TestDoUndo	./Buffer/Test.pm	/^sub TestDoUndo$/;"	s
+TestSerialisation	./Buffer/Test.pm	/^sub TestSerialisation$/;"	s
+Text::Editor::Vip::Buffer	./Buffer.pm	/^package Text::Editor::Vip::Buffer;$/;"	p
+Text::Editor::Vip::Buffer::Constants	./Buffer/Constants.pm	/^package Text::Editor::Vip::Buffer::Constants;$/;"	p
+Text::Editor::Vip::Buffer::DoUndoRedo	./Buffer/DoUndoRedo.pm	/^package Text::Editor::Vip::Buffer::DoUndoRedo;$/;"	p
+Text::Editor::Vip::Buffer::Indenter	./Buffer/Indenter.pm	/^package Text::Editor::Vip::Buffer::Indenter;$/;"	p
+Text::Editor::Vip::Buffer::List	./Buffer/List.pm	/^package Text::Editor::Vip::Buffer::List;$/;"	p
+Text::Editor::Vip::Buffer::Plugins::Case	./Buffer/Plugins/Case.pm	/^package Text::Editor::Vip::Buffer::Plugins::Case;$/;"	p
+Text::Editor::Vip::Buffer::Plugins::Display	./Buffer/Plugins/Display.pm	/^package Text::Editor::Vip::Buffer::Plugins::Display;$/;"	p
+Text::Editor::Vip::Buffer::Plugins::File	./Buffer/Plugins/File.pm	/^package Text::Editor::Vip::Buffer::Plugins::File;$/;"	p
+Text::Editor::Vip::Buffer::Plugins::FindReplace	./Buffer/Plugins/FindReplace.pm	/^package Text::Editor::Vip::Buffer::Plugins::FindReplace ;$/;"	p
+Text::Editor::Vip::Buffer::Plugins::GetWord	./Buffer/Plugins/GetWord.pm	/^package Text::Editor::Vip::Buffer::Plugins::GetWord ;$/;"	p
+Text::Editor::Vip::Buffer::Plugins::InsertConstruct	./Buffer/Plugins/InsertConstruct.pm	/^package Text::Editor::Vip::Buffer::Plugins::InsertConstruct ;$/;"	p
+Text::Editor::Vip::Buffer::Plugins::InsertDelete	./Buffer/Plugins/InsertDelete.pm	/^package Text::Editor::Vip::Buffer::Plugins::InsertDelete ;$/;"	p
+Text::Editor::Vip::Buffer::Plugins::Movements	./Buffer/Plugins/Movements.pm	/^package Text::Editor::Vip::Buffer::Plugins::Movements;$/;"	p
+Text::Editor::Vip::Buffer::Plugins::PageUpDown	./Buffer/Plugins/PageUpDown.pm	/^package Text::Editor::Vip::Buffer::Plugins::PageUpDown;$/;"	p
+Text::Editor::Vip::Buffer::Plugins::Selection	./Buffer/Plugins/Selection.pm	/^package Text::Editor::Vip::Buffer::Plugins::Selection;$/;"	p
+Text::Editor::Vip::Buffer::Plugins::Tags	./Buffer/Plugins/Tags.pm	/^package Text::Editor::Vip::Buffer::Plugins::Tags ;$/;"	p
+Text::Editor::Vip::Buffer::Selection	./Buffer/Selection.pm	/^package Text::Editor::Vip::Buffer::Selection;$/;"	p
+Text::Editor::Vip::Buffer::Test	./Buffer/Test.pm	/^package Text::Editor::Vip::Buffer::Test;$/;"	p
+Text::Editor::Vip::CommandBlock	./CommandBlock.pm	/^package Text::Editor::Vip::CommandBlock;$/;"	p
+Text::Editor::Vip::Selection	./Selection.pm	/^package Text::Editor::Vip::Selection;$/;"	p
+Text::Editor::Vip::View	./View.pm	/^package Text::Editor::Vip::View;$/;"	p
+Text::Editor::Vip::View::Plugins::IncrementalFind	./View/Plugins/IncrementalFind.pm	/^package Text::Editor::Vip::View::Plugins::IncrementalFind ;$/;"	p
+Text::Editor::Vip::View::Plugins::Macro	./View/Plugins/Macro.pm	/^package Text::Editor::Vip::View::Plugins::Macro ;$/;"	p
+Text::Editor::Vip::View::Plugins::WordCompletion	./View/Plugins/WordCompletion.pm	/^package Text::Editor::Vip::View::Plugins::WordCompletion ;$/;"	p
+Undo	./Buffer/DoUndoRedo.pm	/^sub Undo$/;"	s
+new	./Buffer.pm	/^sub new$/;"	s
+new	./Buffer/List.pm	/^sub new$/;"	s
+new	./CommandBlock.pm	/^sub new$/;"	s
+new	./Selection.pm	/^sub new$/;"	s
+new	./View.pm	/^sub new$/;"	s

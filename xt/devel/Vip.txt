@@ -1,0 +1,44 @@
+comand to:
+
+insert something like below:
+
+#----------------------- somethinghere ---------------------
+
+balance the separator and check the length is not over a certain limit
+
+
+
+lexer/colorizer
+
+multiline constructs should be colorized to the latest character not infinitely
+
+
+color color  color  color  color  color         |
+color color  color  color  color  color         |
+color color  color  color  color  color [spaces]|  no color here
+color color  color  color  color  color         |
+color                      color  color         |
+
+
+lexer colorizer
+show end of line with special symbole even in multiline constructs
+
+
+lexer colorizer
+show verbatim elements in diferent color
+
+
+Install Kgraphviewer
+
+
+
+Data::TreeDumper
+DumpTree 
+	(
+	......
+	COMMENTS =
+		{
+		# type         comment
+		Vip::Buffer  = something
+		Vip::Element = sub{}
+		}

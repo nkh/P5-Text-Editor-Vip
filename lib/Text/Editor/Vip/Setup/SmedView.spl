@@ -1,0 +1,266 @@
+
+package SmedView ;
+
+use base qw(Wx::Window Smed) ;
+
+use strict ;
+use warnings ;
+
+#-------------------------------------------------------------------------------
+
+use SmedView::Macro ;
+use SmedView::Template ;
+use SmedView::FindReplace ;
+use SmedView::IdentifierCompletion ;
+
+use Smed::Case ;
+use Smed::Movement ;
+use Smed::DoUndoRedo ;
+use Smed::FindReplace ;
+use Smed::InsertDelete ;
+
+use common::Spell ;
+use common::GotoLine ;
+use common::AlignRight ;
+use common::KeyboardMapping ;
+
+use common::ExportToHtml ;
+
+sub SmedViewSetup
+{
+my $this = shift ;
+print "Running SmedViewSetup \n" ;
+
+#-------------------------------------------------------------------------------
+# case
+
+$this->AddCommand('C00U', 'Make selection upper case', \&Smed::MakeSelectionUpperCase) ;
+$this->AddCommand('CS0U', 'Make selection upper case', \&Smed::MakeSelectionLowerCase) ;
+
+#-------------------------------------------------------------------------------
+
+# display
+
+$this->AddCommand('CS0C'       , 'Center current line in display', \&SmedView::CenterCurrentLineInDisplay) ;
+$this->AddCommand('C00RETURN'  , 'Flip display size'             , \&SmedView::FlipDisplaySize) ;
+$this->AddCommand('00AL'       , 'Flip line number display'      , \&SmedView::FlipLineNumberDisplay) ;
+$this->AddCommand('00AT'       , 'display tab stops'             , \&SmedView::DisplayTabStops) ;
+$this->AddCommand('00ASUBTRACT', 'Reduce tab size'               , \&SmedView::ReduceTabSize) ;
+$this->AddCommand('00AADD'     , 'Expand tab size'               , \&SmedView::ExpandTabSize) ;
+                                                                   
+#-------------------------------------------------------------------------------
+
+# selection
+
+$this->AddCommand('C00A'                , 'Select all',                          \&Smed::SelectAll) ;
+$this->AddCommand('000RIGHT_CLICK'      , 'Right click',                         \&SmedView::DisplayPopupMenu) ;
+$this->AddCommand('000LEFT_CLICK'       , 'Left click',                          \&SmedView::LeftClick) ;
+                                                                                                                         
+$this->AddCommand('000LEFT_DOUBLE_CLICK', 'Select word',                         \&Smed::SelectWord) ;
+$this->AddCommand('C00LEFT_CLICK'       , 'Select word',                         \&Smed::SelectWord) ;
+$this->AddCommand('CS0SPACE'            , 'Select word',                         \&Smed::SelectWord) ;
+                                                                                                                         
+$this->AddCommand('0S0LEFT_CLICK'       , 'Extend selection',                    \&Smed::ExtendSelection) ;
+$this->AddCommand('0S0PRIOR'            , 'Extend selection page up',            \&Smed::ExtendSelectionPageUp) ;
+$this->AddCommand('0S0NEXT'             , 'Extend selection page down',          \&Smed::ExtendSelectionPageDown) ;
+$this->AddCommand('0S0END'              , 'Extend selection to end of line',     \&Smed::ExtendSelectionToEndOfLine) ;
+$this->AddCommand('CS0END'              , 'Extend selection to end of document', \&Smed::ExtendSelectionToEndOfDocument) ;
+$this->AddCommand('CS0HOME'             , 'Extend selection to top of document', \&Smed::ExtendSelectionToTopOfDocument) ;
+$this->AddCommand('0S0HOME'             , 'Extend selection home',               \&Smed::ExtendSelectionHome) ;
+$this->AddCommand('0S0LEFT'             , 'Extend selection left',               \&Smed::ExtendSelectionLeft) ;
+$this->AddCommand('0S0RIGHT'            , 'Extend selection right',              \&Smed::ExtendSelectionRight) ;
+$this->AddCommand('CS0RIGHT'            , 'Extend selection to next word',       \&Smed::ExtendSelectionToNextWord) ;
+$this->AddCommand('CS0LEFT'             , 'Extend selection to previous word',   \&Smed::ExtendSelectionToPreviousWord) ;
+$this->AddCommand('0S0UP'               , 'Extend selection up',                 \&Smed::ExtendSelectionUp) ;
+$this->AddCommand('0S0DOWN'             , 'Extend selection down',               \&Smed::ExtendSelectionDown) ;
+$this->AddCommand('C00INSERT'           , 'Copy selection to windows clipboard', \&Smed::CopySelectionToClipboard_0) ;
+$this->AddCommand('0S0INSERT'           , 'Insert windows clipboard contents',   \&Smed::InsertClipboardContents_0) ;
+$this->AddCommand('C001'                , 'Copy selection to clipboard 1',       \&Smed::CopySelectionToClipboard_1) ;
+$this->AddCommand('CS01'                , 'Insert clipboard contents 1',         \&Smed::InsertClipboardContents_1) ;
+$this->AddCommand('C002'                , 'Copy selection to clipboard 2',       \&Smed::CopySelectionToClipboard_2) ;
+$this->AddCommand('CS02'                , 'Insert clipboard contents 2',         \&Smed::InsertClipboardContents_2) ;
+$this->AddCommand('C003'                , 'Copy selection to clipboard 3',       \&Smed::CopySelectionToClipboard_3) ;
+$this->AddCommand('CS03'                , 'Insert clipboard contents 3',         \&Smed::InsertClipboardContents_3) ;
+$this->AddCommand('C004'                , 'Copy selection to clipboard 4',       \&Smed::CopySelectionToClipboard_4) ;
+$this->AddCommand('CS04'                , 'Insert clipboard contents 4',         \&Smed::InsertClipboardContents_4) ;
+                                                                                 
+                                                                                 
+#  called by CPP smed
+#$this->AddCommand('000NEW_SELECTION'    , 'Smed::ExtendSelection()') ;
+
+#-------------------------------------------------------------------------------
+
+# insert, delete
+
+$this->AddCommand('000DELETE', 'Delete',    \&Smed::Delete) ;
+$this->AddCommand('000BACK',   'Backspace', \&Smed::BackspaceOne) ;
+
+$this->AddCommand('000RETURN'   , 'Insert new line',               \&Smed::InsertNewLine) ;
+$this->AddCommand('CS0L'        , 'Insert new line before current',\&Smed::InsertNewLineBeforeCurrent) ;
+$this->AddCommand('C00L'        , 'Delete line',                   \&Smed::DeleteLine) ;
+$this->AddCommand('C00BACK'     , 'Delete to begining of line',    \&Smed::DeleteToBeginingOfWord) ;
+$this->AddCommand('C00DELETE'   , 'Delete to end of word',         \&Smed::DeleteToEndOfWord) ;
+$this->AddCommand('000SPACE'    , 'Insert space',                  \&Smed::InsertSpace) ;
+$this->AddCommand('000TAB'      , 'Insert tab',                    \&Smed::InsertTab) ;
+$this->AddCommand('0S0TAB'      , 'Remove tab from selection',     \&Smed::RemoveTabFromSelection) ;
+
+#--------------------------------------------------------------------------) ;
+# movement
+
+$this->AddCommand('C00G', 'Goto line and character', \&Smed::GotoLine) ;
+
+$this->AddCommand('0S0WHEEL_DOWN', 'Move right 10',           \&Smed::MoveRight10) ;
+$this->AddCommand('0S0WHEEL_UP'  , 'Move left 10',            \&Smed::MoveLeft10) ;
+$this->AddCommand('C00WHEEL_UP'  , 'Page up',                 \&Smed::PageUp) ;
+$this->AddCommand('000PRIOR'     , 'Page up',                 \&Smed::PageUp) ;
+$this->AddCommand('C00WHEEL_DOWN', 'Page down',               \&Smed::PageDown) ;
+$this->AddCommand('000NEXT'      , 'Page down',               \&Smed::PageDown) ;
+$this->AddCommand('C00HOME'      , 'Move to top of document', \&Smed::MoveToTopOfDocument) ;
+$this->AddCommand('C00END'       , 'Move to end of document', \&Smed::MoveToEndOfDocument) ;
+$this->AddCommand('CS0WHEEL_DOWN', 'Move to end of line',     \&Smed::MoveToEndOfLine) ;
+$this->AddCommand('000END'       , 'Move to end of line',     \&Smed::MoveToEndOfLine) ;
+$this->AddCommand('000HOME'      , 'Move home',               \&Smed::MoveHome) ; #a la microsoft
+$this->AddCommand('CS0WHEEL_UP ' , 'Move home',               \&Smed::MoveHome) ; #a la microsoft
+$this->AddCommand('000LEFT'      , 'Move left',               \&Smed::MoveLeft) ;
+$this->AddCommand('000RIGHT'     , 'Move right',              \&Smed::MoveRight) ;
+#$this->AddCommand(''     , 'Smed::MoveToEndOfWord()') ;
+$this->AddCommand('C00LEFT'      , 'Move to previous word',   \&Smed::MoveToPreviousWord) ;
+$this->AddCommand('C00RIGHT'     , 'Move to next word',       \&Smed::MoveToNextWord) ;
+$this->AddCommand('000WHEEL_UP'  , 'Wheel up',                \&Smed::WheelUp) ;
+$this->AddCommand('000WHEEL_DOWN', 'Wheel down',              \&Smed::WheelDown) ;
+$this->AddCommand('000UP'        , 'Move up',                 \&Smed::MoveUp) ;
+$this->AddCommand('000DOWN'      , 'Move down',               \&Smed::MoveDown) ;
+$this->AddCommand('C00UP'        , 'Scroll up',               \&SmedView::ScrollUp) ;
+$this->AddCommand('C00DOWN'      , 'Scroll down',             \&SmedView::ScrollDown) ;
+                                                              
+#-------------------------------------------------------------------------------
+
+# bookmark
+                                                            
+$this->AddCommand('000F2', 'Goto next bookmark',            \&Smed::GotoNextBookmark) ;
+$this->AddCommand('0S0F2', 'Goto Previous bookmark',        \&Smed::GotoPreviousBookmark) ;
+$this->AddCommand('C00F2', 'Flip bookmark at current line', \&Smed::FlipBookmarkAtCurrentLine) ;
+$this->AddCommand('CS0F2', 'Clear all bookmarks',           \&Smed::ClearAllBookmarks) ;
+                                                            
+$this->AddCommand('000F5', 'Goto next warning',             \&Smed::GotoNextWarning) ;
+$this->AddCommand('0S0F5', 'Goto previous warning',         \&Smed::GotoPreviousWarning) ;
+$this->AddCommand('C00F5', 'Flip warning at current line',  \&Smed::FlipWarningAtCurrentLine) ;
+$this->AddCommand('CS0F5', 'Clear all warnings',            \&Smed::ClearAllWarnings) ;
+                                                            
+$this->AddCommand('C00F6', 'Add named bookmark',            \&Smed::AddNamedBookmark) ;
+$this->AddCommand('000F6', 'Goto named bookmark',           \&Smed::GotoNamedBookmark) ;
+                                                            
+#-------------------------------------------------------------------------------
+
+# Interaction
+
+$this->AddCommand('000ESCAPE', 'On escape',     \&SmedView::OnEscape) ;
+$this->AddCommand('C00N', 'Run new smed',       \&SmedView::RunNewSmed) ;
+                                                
+#$this->AddCommand('C00Z'     , 'Smed::OnUndo()') ;
+#$this->AddCommand('C00Y'     , 'Smed::OnRedo()') ;
+                                                
+$this->AddCommand('C00O', 'Open file'        ,  \&SmedView::OpenFile) ;
+$this->AddCommand('C00S', 'Save'             ,  \&Smed::SaveDocument) ;
+$this->AddCommand('CS0S', 'Save Document as.',  \&Smed::SaveDocumentAs) ;
+
+$this->AddCommand('C00P', 'Display popup menu', \&SmedView::DisplayPopupMenu) ;
+$this->AddCommand('C0AK', 'Print Keyboard mapping', \&SmedView::DisplayKeyboardMapping) ;
+
+
+$this->AddPopupMenuFiller(\&CommonMenuFiller) ;
+
+#-------------------------------------------------------------------------------
+
+# find replace
+
+$this->AddCommand('C00F' , 'Find ocurrence',                 \&FindOccurenceDialog) ;
+$this->AddCommand('CS0F' , 'Find previous ocurrence ',       \&FindPreviousOccurenceDialog) ;
+$this->AddCommand('000F3', 'Find next',                      \&Smed::FindNextOccurence) ;
+$this->AddCommand('0S0F3', 'Find previous',                  \&Smed::FindPreviousOccurence) ;
+$this->AddCommand('C00F3', 'Find next text under caret',     \&Smed::FindNextOccurenceForTextUnderCaret) ;
+$this->AddCommand('CS0F3', 'Find previous text under caret', \&Smed::FindPreviousOccurenceForTextUnderCaret) ;
+
+$this->AddCommand('C00H' , 'Replace',                        \&ReplaceOccurenceDialog) ;
+$this->AddCommand('000F4', 'Replace again',                  \&Smed::ReplaceAgain) ;
+
+#$this->AddCommand('C0AF' , 'Smed::IncrementalSearch()') ;
+
+#-------------------------------------------------------------------------------
+
+# Alignement
+
+$this->AddCommand('C00ADD', 'Align right on equal signe', \&Smed::AlignRightOnEqualSign) ;
+$this->AddCommand('C000', 'Align right', \&Smed::AlignRightOnDelimiter) ;
+
+#-------------------------------------------------------------------------------
+
+# Fold
+#$this->AddCommand('' , 'Smed::FoldSelection()') ;
+#$this->AddCommand('' , 'Smed::Unfold()') ;
+
+#-------------------------------------------------------------------------------
+
+#macro
+
+$this->AddCommand('CS0R', 'Record macro', \&SmedView::RecordMacro) ;
+$this->AddCommand('CS0P', 'Play macro',   \&SmedView::PlayMacro) ;
+$this->AddCommand('CS0S', 'Save macro',   \&SmedView::SaveMacro) ;
+$this->AddCommand('CS0L', 'Load macro',   \&SmedView::LoadMacro) ;
+
+#-------------------------------------------------------------------------------
+
+# undo, redo
+$this->AddCommand('C00Z', 'Undo', \&Smed::Undo) ;
+$this->AddCommand('C00Y', 'Redo', \&Smed::Redo) ;
+
+#-------------------------------------------------------------------------------
+
+# divers 
+$this->AddCommand('C0AS', 'Check line spelling',       \&Smed::CheckLineSpelling) ;
+$this->AddCommand('C00T', 'Start template dispatcher', \&SmedView::StartTemplateDispatcher) ;
+$this->AddCommand('C00SPACE', 'Completion',            \&SmedView::IdentifierCompletion) ;
+$this->AddCommand('C0AM', 'Make file read-write',      \&Smed::MakeFileReadWrite) ;
+
+$this->AddCommand('C00P', 'Export to Html', \&SmedView::ExportToHtml) ;
+
+use SmedView::ClipboardView ;
+$this->AddCommand('000F12', 'General test', \&SmedView::OpenClipboardView) ;
+}
+
+#-------------------------------------------------------------------------------
+
+sub CommonMenuFiller
+{
+my $this = shift ;
+my $menu = shift ;
+
+EVT_MENU($this, 0, \&OpenFileMenuHandler) ;
+$menu->Append(0, '&Open File', 'Opens a file for editing') ;
+  
+EVT_MENU($this, 1, \&CloseFileMenuHandler) ;
+$menu->Append(1, '&Close File', 'Closes current file') ;
+}
+
+#-------------------------------------------------------------------------------
+
+sub OpenFileMenuHandler
+{
+my ($this, $event ) = @_;
+
+$this->OpenFile() ;
+}
+
+#-------------------------------------------------------------------------------
+
+sub CloseFileMenuHandler
+{
+my ($this, $event ) = @_;
+
+$this->CloseDocument() ;
+}
+
+#-------------------------------------------------------------------------------
+
+1 ;
+
