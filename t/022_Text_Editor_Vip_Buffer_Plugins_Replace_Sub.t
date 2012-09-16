@@ -62,7 +62,10 @@ $buffer->ExpandWith('PrintError', sub {$redefined_sub_output = $_[1]}) ;
 lives_ok {$buffer->ReplaceOccurence(qr/l/, sub{die;}, 2, 0)} 'invalid replacement doesn\'t die' ;
 
 use Test::Warn ;
-warning_like {$buffer->ReplaceOccurence(qr/l/, '$2', 2, 0)} qr'Use of uninitialized value in substitution iterator', 'invalid replacement warning' ;
+warning_like 
+	{
+	$buffer->ReplaceOccurence(qr/l/, '$2', 2, 0)
+	} qr/Use of uninitialized value (?:.*) in substitution iterator/, 'invalid replacement warning' ;
 
 
 # verify arguments to replacement sub

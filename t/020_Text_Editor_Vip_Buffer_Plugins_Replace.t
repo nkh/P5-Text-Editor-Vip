@@ -228,7 +228,7 @@ $buffer->SetModificationPosition(0, 0) ;
 warning_like 
 	{
 	lives_ok {$buffer->ReplaceOccurence(qr/l/, '$2', 2, 0)} 'invalid replacement doesn\'t die' ;
-	} qr'Use of uninitialized value in substitution iterator', 'invalid replacement warning' ;
+	} qr/Use of uninitialized value (?:.*) in substitution iterator/, 'invalid replacement warning' ;
 }
 
 #-----------------------------------------
@@ -307,7 +307,7 @@ $buffer->SetModificationPosition(7, 0) ;
 warning_like 
 	{
 	is_deeply([$buffer->ReplaceOccurenceWithinBoundaries('3', '$2', @boundaries)], [2, 8, '3', ''], 'match outside boundaries') ;
-	} qr'Use of uninitialized value in substitution iterator', 'invalid replacement warning' ;
+	} qr/Use of uninitialized value (?:.*) in substitution iterator/, 'invalid replacement warning' ;
 }
 
 TODO:

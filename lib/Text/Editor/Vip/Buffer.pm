@@ -371,7 +371,6 @@ Returns (1) on success and (0, "error message") on failure.
 my $buffer = shift ;
 my $perl_script = shift || '' ;
 
-our $buffer = $buffer ;
 eval $perl_script ;
 
 if($@)
